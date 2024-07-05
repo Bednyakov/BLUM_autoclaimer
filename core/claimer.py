@@ -2,6 +2,7 @@ import time
 import requests
 from random import randint
 from core.loggers import logger
+from sys import exit as exit_the_program
 
 
 class BlumClaimer():
@@ -25,6 +26,7 @@ class BlumClaimer():
                 logger.error(f"Ответ не в формате JSON: {e}")
         else:
             logger.error(f"Ошибка me_request: {response.text}")
+            exit_the_program()
 
     def now_request(self) -> None:
         url = "https://game-domain.blum.codes/api/v1/time/now"
@@ -34,6 +36,7 @@ class BlumClaimer():
         if response.status_code == 200:
             return None
         logger.error(f"Ошибка now_request: {response.status_code}")
+        exit_the_program()
 
     def balance_request(self) -> int:
         url = "https://game-domain.blum.codes/api/v1/user/balance"
@@ -51,6 +54,7 @@ class BlumClaimer():
             except ValueError as e:
                 logger.error(f"Ответ не в формате JSON: {e}")
         logger.error(f"Ошибка balance_request: {response.status_code}")
+        exit_the_program()
 
     def play_request(self) -> str:
         url = "https://game-domain.blum.codes/api/v1/game/play"
@@ -66,6 +70,7 @@ class BlumClaimer():
             except ValueError as e:
                 logger.error(f"Ответ не в формате JSON: {e}")
         logger.error(f"Ошибка play_request: {response.status_code}")
+        exit_the_program()
 
     def claim_request(self, id: str) -> None:
         url = "https://game-domain.blum.codes/api/v1/game/claim"
@@ -79,6 +84,7 @@ class BlumClaimer():
             logger.info(f"За игру получено {points} очков.")
             return None
         logger.error(f"Ошибка claim_request: {response.status_code}")
+        exit_the_program()
 
     def play(self):
         id = self.play_request()
