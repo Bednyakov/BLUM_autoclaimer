@@ -1,4 +1,4 @@
-from core.game_runner import run
+from core import run
 
 
 if __name__ == '__main__':
