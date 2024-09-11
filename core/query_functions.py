@@ -1,5 +1,6 @@
 import requests
 from random import randint
+from sys import exit as exit_the_program
 
 from .loggers import logger
 
@@ -18,6 +19,7 @@ def balance_request(headers: dict) -> int:
             except ValueError as e:
                 logger.error(f"Ответ не в формате JSON: {e}")
         logger.error(f"Ошибка balance_request: {response.status_code}")
+        exit_the_program()
 
 
 def get_game_id(headers: dict) -> str:
@@ -32,6 +34,7 @@ def get_game_id(headers: dict) -> str:
             except ValueError as e:
                 logger.error(f"Ответ не в формате JSON: {e}")
     logger.error(f"Ошибка play_request: {response.status_code}")
+    exit_the_program()
 
 
 def claim_flowers(game_id: str, headers: dict) -> None:
@@ -45,6 +48,7 @@ def claim_flowers(game_id: str, headers: dict) -> None:
         logger.info(f"За игру получено {points} очков.")
         return None
     logger.error(f"Ошибка claim_request: {response.status_code}")
+    exit_the_program()
 
 
 def get_passes(headers: dict) -> int:
