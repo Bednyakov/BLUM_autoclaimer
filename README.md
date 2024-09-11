@@ -11,7 +11,7 @@ git clone https://github.com/Bednyakov/BLUM_autoclaimer.git
 pip install -r requirements.txt
 ```
 
-3. Запустить main.py (в момент работы программы лучше держать игру на мобильном устройстве открытой)
+3. Запустить main.py (в момент работы программы лучше держать приложение на мобильном устройстве открытым).
 ```
 python3 main.py
 ```
