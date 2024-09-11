@@ -13,7 +13,6 @@ def balance_request(headers: dict) -> int:
         if response.status_code == 200:
             try:
                 data = response.json()
-                print(data)
                 return data["playPasses"]
             
             except ValueError as e:
@@ -49,14 +48,14 @@ def claim_flowers(game_id: str, headers: dict) -> None:
 
 
 def get_passes(headers: dict) -> int:
-    amount = input("Введите количество билетов или 'all' если играем на все: ")
+    amount = input("\nВведите количество билетов или 'all' если играем на все: ")
     if amount == 'all':
         return balance_request(headers)
 
     return int(amount)
 
 def get_token() -> str:
-     token = input("Введите токен авторизации (без Bearer): ")
+     token = input("\nВведите токен авторизации (без Bearer): ")
      return token
 
 def get_headers() -> dict:

@@ -14,6 +14,7 @@ def run():
 
         try:
             game_id = get_game_id(headers=headers)
+            logger.info(f"Началась игра {game_id}")
             sleep(31)
             claim_flowers(game_id=game_id, headers=headers)
             sleep(randint(1,4))
