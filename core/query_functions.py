@@ -22,6 +22,7 @@ def balance_request(headers: dict) -> int:
         if response.status_code == 401:
                 logger.error(f"Токен просрочен: {response.status_code}")
                 exit_the_program()
+        logger.info("Повторно запрашиваю количество билетов...")
     logger.error(f"Ошибка balance_request: {response.status_code}")
     exit_the_program()
 
@@ -42,7 +43,8 @@ def get_game_id(headers: dict) -> str:
         if response.status_code == 401:
             logger.error(f"Токен просрочен: {response.status_code}")
             exit_the_program()
-    logger.error(f"Ошибка play_request: {response.status_code}")
+        logger.info("Повторно запрашиваю ID игры...")
+    logger.error(f"Ошибка get_game_id: {response.status_code}")
     exit_the_program()
 
 
@@ -60,6 +62,7 @@ def claim_flowers(game_id: str, headers: dict) -> None:
         if response.status_code == 401:
             logger.error(f"Токен просрочен: {response.status_code}")
             exit_the_program()
+        logger.info("Повторно отправляю результат игры...")
     logger.error(f"Ошибка claim_request: {response.status_code}")
     exit_the_program()
 
