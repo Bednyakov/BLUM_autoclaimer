@@ -9,44 +9,48 @@ from .loggers import logger
 def balance_request(headers: dict) -> int:
         url = "https://game-domain.blum.codes/api/v1/user/balance"
 
-        response = requests.get(url, headers=headers)
+        for _ in range(10):
+            response = requests.get(url, headers=headers)
 
-        if response.status_code == 200:
-            try:
-                data = response.json()
-                return data["playPasses"]
-            
-            except ValueError as e:
-                logger.error(f"Ответ не в формате JSON: {e}")
+            if response.status_code == 200:
+                try:
+                    data = response.json()
+                    return data["playPasses"]
+                
+                except ValueError as e:
+                    logger.error(f"Ответ не в формате JSON: {e}")
         logger.error(f"Ошибка balance_request: {response.status_code}")
         exit_the_program()
 
 
 def get_game_id(headers: dict) -> str:
     url = "https://game-domain.blum.codes/api/v1/game/play"
-    response = requests.post(url, headers=headers)
 
-    if response.status_code == 200:
-            try:
-                data = response.json()
-                return data["gameId"]
-            
-            except ValueError as e:
-                logger.error(f"Ответ не в формате JSON: {e}")
+    for _ in range(10):
+        response = requests.post(url, headers=headers)
+
+        if response.status_code == 200:
+                try:
+                    data = response.json()
+                    return data["gameId"]
+                
+                except ValueError as e:
+                    logger.error(f"Ответ не в формате JSON: {e}")
     logger.error(f"Ошибка play_request: {response.status_code}")
     exit_the_program()
 
 
 def claim_flowers(game_id: str, headers: dict) -> None:
     url = "https://game-domain.blum.codes/api/v1/game/claim"
-    points = randint(189, 207)
-    payload = {"gameId": game_id, "points": points}
+    for _ in range(15):
+        points = randint(189, 207)
+        payload = {"gameId": game_id, "points": points}
 
-    response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=headers, json=payload)
 
-    if response.status_code == 200:
-        logger.info(f"За игру получено {points} очков.")
-        return None
+        if response.status_code == 200:
+            logger.info(f"За игру получено {points} очков.")
+            return None
     logger.error(f"Ошибка claim_request: {response.status_code}")
     exit_the_program()
 
