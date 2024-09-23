@@ -24,8 +24,8 @@ python3 main.py
 - Установите расширение Chrome Resource Override
 - [Add Rule -> Edit Headers](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/1step.png)
 - В выпадающем списке Presets выберите [Allow Frames и Allow Outside Content](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/2step.png)
-- Запустите приложение BLUM в веб версии telegram: web.telegram.org
-- Откройте инструменты разработчика (F12) и посмотрите заголовки любого запроса приложения BLUM
+- Запустите приложение BLUM в веб версии telegram: [web.telegram.org](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/3step.png)
+- Откройте инструменты разработчика (F12) и посмотрите заголовки любого [запроса](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/4step.png) приложения BLUM
 
 
 ## Автор не несёт ответственности за последствия от использования программы.
