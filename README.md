@@ -20,7 +20,7 @@ python3 main.py
 - Автоматическая игра на билеты в мини игру BLUM.
 - За каждую игру будет получено от 189 до 207 очков.
 
-Как получить обновляемый токен приложения: 
+### Как получить обновляемый токен приложения: 
 - Установите расширение Chrome Resource Override
 - [Add Rule -> Edit Headers](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/1step.png)
 - В выпадающем списке Presets выберите [Allow Frames и Allow Outside Content](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/2step.png)
