@@ -1,31 +1,66 @@
-Автоматическая игра в BLUM
-=====================
+# BLUM-autoplay
+Скрипт для автоматического получения наград в телеграм App BLUM
 
-### Установка:
-1. Скачайте репозиторий командой: 
+### Последнее обновление: 13.01.2024
+
+- [x] Получает ежедневную награду.
+- [x] Играет в мини игру на имеющиеся билеты.
+- [ ] Выполняет ежедневные задания.
+- [ ] Получает очки за приглашенных друзей.
+
+
+## Установка:
+
+- Получить api_id и api_hash на https://my.telegram.org/apps
+- Запустить скрипт:
+
+### Windows:
+Запустите run.bat дважды щелкнув на файл или выполнив команду в командной строке Windows:
 ```
-git clone https://github.com/Bednyakov/BLUM_autoclaimer.git
+run.bat
 ```
-2. Установите зависимости: 
+
+### Linux:
+```
+chmod +x run.sh
+```
+```
+./run.sh
+```
+
+_____________
+
+Либо без скриптов:
+
+1.
+```
+git clone https://github.com/Bednyakov/BLUM-autoplay.git
+```
+2.
+```
+cd BLUM-autoplay/
+```
+3.
+```
+python3 -m venv .venv
+```
+4.
+```
+source  .venv/bin/activate
+```
+5.
 ```
 pip install -r requirements.txt
 ```
-
-3. Запустить main.py (в момент работы программы лучше держать приложение на мобильном устройстве открытым).
+6.
 ```
-python3 main.py
+python3 play.py
 ```
 
-### Функционал по умолчанию:
-- Автоматическая игра на билеты в мини игру BLUM.
-- За каждую игру будет получено от 189 до 207 очков.
+Вопросы задавать сюда -> [ТЫК](https://t.me/itpolice)
 
-### Как получить обновляемый токен приложения: 
-- Установите расширение Chrome Resource Override
-- [Add Rule -> Edit Headers](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/1step.png)
-- В выпадающем списке Presets выберите [Allow Frames и Allow Outside Content](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/2step.png)
-- Запустите приложение BLUM в веб версии telegram: [web.telegram.org](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/3step.png)
-- Откройте инструменты разработчика (F12) и посмотрите заголовки любого [запроса](https://github.com/Bednyakov/BLUM_autoclaimer/blob/main/images/4step.png) приложения BLUM
+## Не забудь поставить звезду на GitHub!
 
+![Пример работы программы](https://github.com/Bednyakov/BLUM-autoplay/blob/main/images/screen.png)
 
-## Автор не несёт ответственности за последствия от использования программы.
+## Автор программы не несёт ответственности за последствия от её использования!
